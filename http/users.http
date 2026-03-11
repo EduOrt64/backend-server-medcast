@@ -1,0 +1,21 @@
+### create new user
+POST http://localhost:5555/api/v1/users
+Content-Type: application/json
+
+{
+  "name": "EDUARDO MEDCAST",
+  "email": "eduardo@medcast.com",
+  "password": "securepassword",
+  "role": "doctor"
+}
+
+### GET ALL USERS
+GET http://localhost:5555/api/v1/users
+
+
+
+
+    # name: { type: String, required: true },
+    # email: { type: String, required: true, unique: true },
+    # password: { type: String, required: true },
+    # role: { type: String, enum: ["patient", "doctor"], required: true },
