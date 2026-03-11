@@ -1,0 +1,29 @@
+services:
+  mongo:
+    image: mongo:latest
+    container_name: medcast-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - internal
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: medcast-mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: user
+      ME_CONFIG_BASICAUTH_PASSWORD: password
+    networks:
+      - internal
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:
+
+networks:
+  internal:
