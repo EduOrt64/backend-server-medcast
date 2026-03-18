@@ -13,6 +13,11 @@ Content-Type: application/json
 GET http://localhost:5555/api/v1/users
 
 
+### protected route
+GET http://localhost:5555/api/v1/users/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWJhMGZlNDI5Y2U1ZTFhN2IyMWZkMDciLCJyb2xlIjoiZG9jdG9yIiwiaWF0IjoxNzczODAyNzQ2LCJleHAiOjE3NzM4NDU5NDZ9.SOnQmTBO639qMJ6bIn3kyjJz_34QIEvFTJRIiCW6mP0
+
+
 
 
     # name: { type: String, required: true },

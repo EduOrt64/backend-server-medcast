@@ -1,10 +1,23 @@
 import { Request, Response } from "express";
+import config from "../config/config";
+import { sha256 } from "../utils/hash/sha256/sha256";
+import jwtUtil from "../utils/jwt/jwt.util";
 
 abstract class BaseController {
   model: any;
+  config: typeof config;
+  hashPassword: (password: string) => string;
+  jwtUtil: typeof jwtUtil;
 
   constructor(model: any) {
     this.model = model;
+    this.config = config;
+    this.hashPassword = (password: string) => {
+      const [leftSalt, rightSalt] = this.config.salt.split("|");
+      const salted = `${leftSalt}${password}${rightSalt}`;
+      return sha256(salted);
+    };
+    this.jwtUtil = jwtUtil;
   }
 
   async create(req: Request, res: Response) {

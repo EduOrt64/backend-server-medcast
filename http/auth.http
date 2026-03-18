@@ -1,0 +1,19 @@
+### signup new user
+POST http://localhost:5555/api/v1/auth/signup
+Content-Type: application/json
+
+{
+  "name": "EDUARDO MEDCAST1",
+  "email": "test1@test.test",
+  "password": "securepassword",
+  "role": "doctor"
+}
+
+### login user
+POST http://localhost:5555/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "test1@test.test",
+  "password": "securepassword"
+}
